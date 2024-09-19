@@ -81,11 +81,14 @@
         errorMessage.textContent = '';
 
         // Check if username or password is empty
-        if (username === 'jairam' || password === 'Naa3orange9@') {
+        if (username === '' || password === '') {
             errorMessage.textContent = 'Both fields are required.';
-        } else {
+        } 
+        else if (username === 'jairam' && password === 'Naa3orange9@'){
+            alert('Login successful!');
+        }else {
             // In a real application, you would send data to the server here
-            alert('Login successful!'); // For demonstration purposes
+            alert('Login Failed!'); // For demonstration purposes
         }
     });
 </script>
