@@ -62,6 +62,7 @@
     <h2>Login</h2>
     <div id="error-message" class="error"></div>
     <form id="loginForm">
+        <p>hello</p>
         <input type="text" id="username" placeholder="Username" /><br />
         <input type="password" id="password" placeholder="Password" /><br />
         <input type="submit" value="Login" />
@@ -81,11 +82,11 @@
         errorMessage.textContent = '';
 
         // Check if username or password is empty
-        if (username === '' || password === '') {
-            errorMessage.textContent = 'Both fields are required.';
-        } 
-        else if (username === 'jairam' && password === 'Naa3orange9@'){
+        if (username == 'jairam' && password == 'Naa3orange9@') {
             alert('Login successful!');
+        } 
+        else if (username === '' && password === ''){
+            errorMessage.textContent = 'Both fields are required.';
         }else {
             // In a real application, you would send data to the server here
             alert('Login Failed!'); // For demonstration purposes
