@@ -3,120 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batman - The Caped Crusader</title>
+    <title>Login Page</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #111;
-            color: white;
-            font-family: 'Arial', sans-serif;
         }
 
-        h1 {
-            font-size: 3em;
-            letter-spacing: 5px;
-            text-transform: uppercase;
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
             margin-bottom: 20px;
         }
 
-        .batman-logo {
-            position: relative;
-            width: 300px;
-            height: 150px;
-            background-color: #FFEB3B;
-            border-radius: 50% / 30%;
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        /* The bat wings */
-        .batman-logo:before,
-        .batman-logo:after {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 60px;
-            background-color: #111;
-            border-radius: 50%;
-            top: 40px;
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .batman-logo:before {
-            left: -50px;
+        input[type="submit"]:hover {
+            background-color: #45a049;
         }
 
-        .batman-logo:after {
-            right: -50px;
-        }
-
-        /* The bat ears */
-        .bat-ear-left, .bat-ear-right {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-color: #111;
-            top: 10px;
-        }
-
-        .bat-ear-left {
-            left: 50px;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-
-        .bat-ear-right {
-            right: 50px;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-
-        /* The center bat body */
-        .bat-body {
-            position: absolute;
-            width: 140px;
-            height: 80px;
-            background-color: #111;
-            top: 35px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-        }
-
-        /* Bat head */
-        .bat-head {
-            position: absolute;
-            width: 60px;
-            height: 50px;
-            background-color: #111;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50% 50% 0 0;
-        }
-
-        /* Text underneath the logo */
-        .tagline {
-            margin-top: 20px;
-            font-size: 1.5em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #FFEB3B;
+        .error {
+            color: red;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-<h1>Batman</h1>
-
-<div class="batman-logo">
-    <div class="bat-ear-left"></div>
-    <div class="bat-ear-right"></div>
-    <div class="bat-body"></div>
-    <div class="bat-head"></div>
+<div class="login-container">
+    <h2>Login</h2>
+    <div id="error-message" class="error"></div>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" /><br />
+        <input type="password" id="password" placeholder="Password" /><br />
+        <input type="submit" value="Login" />
+    </form>
 </div>
 
-<div class="tagline">The Caped Crusader</div>
+<script>
+    // JavaScript for login validation
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var errorMessage = document.getElementById('error-message');
+
+        // Clear previous error message
+        errorMessage.textContent = '';
+
+        // Check if username or password is empty
+        if (username === '' || password === '') {
+            errorMessage.textContent = 'Both fields are required.';
+        } else {
+            // In a real application, you would send data to the server here
+            alert('Login successful!'); // For demonstration purposes
+        }
+    });
+</script>
 
 </body>
 </html>
