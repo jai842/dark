@@ -10,10 +10,13 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     errorMessage.textContent = '';
 
     // Check if username or password is empty
-    if (username === '' || password === '') {
+    if (username == 'jaya' && password == '123@') {
+        alert('Login successful!');
+    } 
+    else if (username == '' || password == ''){
         errorMessage.textContent = 'Both fields are required.';
-    } else {
+    }else {
         // In a real application, you would send data to the server here
-        alert('Login successful!'); // For demonstration purposes
+        alert('Login Failed'); // For demonstration purposes
     }
 });
